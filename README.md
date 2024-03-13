@@ -1,2 +1,2 @@
 # Calculator
-Designed a calculator  using HTML, CSS, and JavaScript.
+Designed a simple interest calculator  using HTML, CSS, and JavaScript.
