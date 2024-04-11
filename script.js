@@ -1,32 +1,23 @@
-function compute()
-{   //getting input value into the function
-    var p = document.getElementById("principal").value;
-    var r = document.getElementById("rate").value;
-    var y = document.getElementById("years").value;
-  
-// Validation of positive number for "principal" input
-    if (p <= 0){window.alert("Enter a positive number")
-document.getElementById("principal").focus();}
-   else {         
-//calcuation of interest
-    var interest = p * r * y / 100;
-
-//adding the current year with the year input
-    var yearNow = new Date().getFullYear();
-    var yearsFromNow = (+yearNow) + (+y);
-//display result from calculation
-var result = document.getElementById("result");
-    result.innerHTML = 
-        '<div>' +
-            'If you deposit <span class="number" id="principalResult\">' + p + '</span>,<br/>' +
-            'at an interest rate of <span class="number" id="rateResult">' + r + '%</span>.<br/>' +
-            'You will receive an amount of <span class="number" id="interestResult">' + interest + '</span>,<br/>' +
-            'in the year <span class="number" id="futureYearResult">' + yearsFromNow + '</span>.<br/>' +
-        '</div>'
-}  
+function compute() {
+    var principal = document.getElementById("principal").value;
+    var rate = document.getElementById("rate").value;
+    var years = document.getElementById("years").value; 
+    var interest = principal * years * rate / 100;
+    var year = new Date().getFullYear() + parseInt(years);
+    var amount = parseInt(principal) + parseFloat(interest);
+    var result = document.getElementById("result");
+    
+    if (principal <= 0) {
+        alert('Please enter a positive number!');
+        document.getElementById("principal").focus();
+    }
+    else {
+        result.innerHTML = "If you deposit ₹" + "<mark>" + principal + "</mark>" + ",\<br\> at an interest rate of " + "<mark>" + rate + "%" + "</mark>" + "\<br\> You will receive an amount of ₹" + "<mark>" + amount + "</mark>" + ",\<br\> in the year " + "<mark>" + year + "</mark>" + "\<br\>";
+    } 
 }
 
-function slider()
-{ //display the value from slider
-    var sv = document.getElementById("rate").value;
-document.getElementById("slider_value").innerHTML = sv + "%";}
+function updateRate()
+{
+    var rateval = document.getElementById("rate").value;
+    document.getElementById("rate_val").innerText = rateval;
+}
